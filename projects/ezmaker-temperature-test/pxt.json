@@ -1,0 +1,22 @@
+{
+    "name": "EZMAKER temperature test",
+    "description": "Stage 1: A reads MAX31850 on P12; B reads DS18B20 on P13.",
+    "dependencies": {
+        "core": "file:../ezmaker-core",
+        "ws2812b": "file:../ezmaker-ws2812b",
+        "neopixel": "file:../ezmaker-neopixel",
+        "pxt-ezmakershield-microbit": "file:../ezmaker-extension"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts"
+    ],
+    "targetVersions": {
+        "target": "8.1.19",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}

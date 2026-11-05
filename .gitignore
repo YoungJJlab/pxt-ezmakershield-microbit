@@ -1,1 +1,44 @@
-node_modules
+# Private correspondence, internal documents and publication review records.
+/_private/
+
+# Installed dependencies and generated development/build state stay in place.
+/node_modules/
+/pxt_modules/
+/built/
+/.dev/
+/.pxt/
+/.claude/
+/.codex/
+/.agents/
+/.aws/
+**/.header.json
+**/.simstate.json
+**/_history
+projects/*/built/
+projects/*/pxt_modules/
+
+# Links expose the original sources/dependencies to the filesystem editor.
+projects/ezmaker-extension/
+projects/ezmaker-core/
+projects/ezmaker-neopixel/
+projects/ezmaker-dstemp/
+projects/ezmaker-ws2812b/
+
+# Only the portable shared task definitions belong in the public repository.
+/.vscode/*
+!/.vscode/tasks.json
+
+# Mail, vendor PDFs, firmware and local secrets require explicit review.
+*.eml
+*.pdf
+*.hex
+*.uf2
+*.log
+.env
+.env.*
+
+# Retired ultrasonic project runtime output is kept locally for historical review.
+/projects/ezmaker-ultrasonic-test/
+
+# User-created local editor scratch project stays in place, outside publication.
+/projects/test/

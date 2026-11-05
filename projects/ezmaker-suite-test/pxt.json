@@ -1,0 +1,21 @@
+{
+    "name": "EZMAKER full test suite",
+    "description": "Generated from root test.ts; unplug all modules before running on hardware.",
+    "dependencies": {
+        "core": "file:../ezmaker-core",
+        "ws2812b": "file:../ezmaker-ws2812b",
+        "neopixel": "file:../ezmaker-neopixel",
+        "pxt-ezmakershield-microbit": "file:../ezmaker-extension"
+    },
+    "files": [
+        "main.ts"
+    ],
+    "targetVersions": {
+        "target": "8.1.19",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}

@@ -1,0 +1,176 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block type="device_button_event">
+<field name="NAME">Button.A</field>
+<statement name="HANDLER">
+<block type="variables_set">
+<field name="VAR">maxStarted</field>
+<value name="VALUE">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="device_get_running_time">
+</block>
+</value>
+<next>
+<block type="variables_set">
+<field name="VAR">maxTemperature</field>
+<value name="VALUE">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="EZMAKER_max31850_read">
+<field name="port">EZMakerDigitalPin.P12</field>
+</block>
+</value>
+<next>
+<block type="variables_set">
+<field name="VAR">maxElapsed</field>
+<value name="VALUE">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="math_arithmetic">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="device_get_running_time">
+</block>
+</value>
+<value name="B">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="variables_get">
+<field name="VAR">maxStarted</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="serial_writevalue">
+<value name="name">
+<shadow type="text">
+<field name="TEXT">MAX31850_C</field>
+</shadow>
+</value>
+<value name="value">
+<block type="variables_get">
+<field name="VAR">maxTemperature</field>
+</block>
+</value>
+<next>
+<block type="serial_writevalue">
+<value name="name">
+<shadow type="text">
+<field name="TEXT">MAX31850_ms</field>
+</shadow>
+</value>
+<value name="value">
+<block type="variables_get">
+<field name="VAR">maxElapsed</field>
+</block>
+</value>
+<next>
+<block type="device_show_number">
+<value name="number">
+<block type="variables_get">
+<field name="VAR">maxTemperature</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<comment pinned="false">One sensor per port&#44; with the module&#39;s normal 3.3 V &#47; GND connections.&#10;A&#58; MAX31850 module on P12. B&#58; DS18B20 module on P13.&#10;A displayed -999 is a measurement failure&#44; never a temperature.</comment>
+</block>
+<block type="device_button_event">
+<field name="NAME">Button.B</field>
+<statement name="HANDLER">
+<block type="variables_set">
+<field name="VAR">dsStarted</field>
+<value name="VALUE">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="device_get_running_time">
+</block>
+</value>
+<next>
+<block type="variables_set">
+<field name="VAR">dsTemperature</field>
+<value name="VALUE">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="EZMAKER_ds18b20_read">
+<field name="port">EZMakerDigitalPin.P13</field>
+</block>
+</value>
+<next>
+<block type="variables_set">
+<field name="VAR">dsElapsed</field>
+<value name="VALUE">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="math_arithmetic">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="device_get_running_time">
+</block>
+</value>
+<value name="B">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="variables_get">
+<field name="VAR">dsStarted</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="serial_writevalue">
+<value name="name">
+<shadow type="text">
+<field name="TEXT">DS18B20_C</field>
+</shadow>
+</value>
+<value name="value">
+<block type="variables_get">
+<field name="VAR">dsTemperature</field>
+</block>
+</value>
+<next>
+<block type="serial_writevalue">
+<value name="name">
+<shadow type="text">
+<field name="TEXT">DS18B20_ms</field>
+</shadow>
+</value>
+<value name="value">
+<block type="variables_get">
+<field name="VAR">dsElapsed</field>
+</block>
+</value>
+<next>
+<block type="device_show_number">
+<value name="number">
+<block type="variables_get">
+<field name="VAR">dsTemperature</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="pxt-on-start">
+<statement name="HANDLER">
+<block type="basic_show_icon">
+<field name="i">IconNames.Yes</field>
+</block>
+</statement>
+</block>
+</xml>

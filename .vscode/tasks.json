@@ -1,0 +1,396 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "MakeCode: Set up extension dependencies",
+            "type": "shell",
+            "command": "node",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            },
+            "args": [
+                "scripts/makecode.cjs",
+                "setup"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "MakeCode: Start local editor",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "serve"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Check TypeScript and blocks",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "check"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build V1 locally",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v1",
+                "--local"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build V2 locally",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v2",
+                "--local"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build temperature test V1",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v1",
+                "--local",
+                "--temperature"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build temperature test V2",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v2",
+                "--local",
+                "--temperature"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build DHT11 test V1",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v1",
+                "--local",
+                "--dht11"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build DHT11 test V2",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v2",
+                "--local",
+                "--dht11"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build NeoPixel test V1",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v1",
+                "--local",
+                "--neopixel"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build NeoPixel test V2",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v2",
+                "--local",
+                "--neopixel"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Run all automated tests",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/run-tests.cjs"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "test",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build full suite V1",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v1",
+                "--local",
+                "--suite"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build full suite V2",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v2",
+                "--local",
+                "--suite"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build basic modules V1",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v1",
+                "--local",
+                "--basic"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build basic modules V2",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v2",
+                "--local",
+                "--basic"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build data transmission V1",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v1",
+                "--local",
+                "--data"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build data transmission V2",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v2",
+                "--local",
+                "--data"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build BMP280 V1",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v1",
+                "--local",
+                "--bmp280"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        },
+        {
+            "label": "MakeCode: Build BMP280 V2",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "scripts/makecode.cjs",
+                "build",
+                "v2",
+                "--local",
+                "--bmp280"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "windows": {
+                "command": "${workspaceFolder}/scripts/run-node.cmd"
+            }
+        }
+    ]
+}

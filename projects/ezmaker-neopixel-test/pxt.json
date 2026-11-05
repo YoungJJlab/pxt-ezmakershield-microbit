@@ -1,0 +1,22 @@
+{
+    "name": "EZMAKER NeoPixel test",
+    "description": "Stage 3: A cycles 1/7/12 pixels on P8, B changes brightness, A+B clears.",
+    "dependencies": {
+        "core": "file:../ezmaker-core",
+        "ws2812b": "file:../ezmaker-ws2812b",
+        "neopixel": "file:../ezmaker-neopixel",
+        "pxt-ezmakershield-microbit": "file:../ezmaker-extension"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts"
+    ],
+    "targetVersions": {
+        "target": "8.1.19",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}

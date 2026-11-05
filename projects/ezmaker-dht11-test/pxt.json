@@ -1,0 +1,22 @@
+{
+    "name": "EZMAKER DHT11 test",
+    "description": "Stage 2: A reads DHT11 temperature and humidity on P16; B checks responsiveness.",
+    "dependencies": {
+        "core": "file:../ezmaker-core",
+        "ws2812b": "file:../ezmaker-ws2812b",
+        "neopixel": "file:../ezmaker-neopixel",
+        "pxt-ezmakershield-microbit": "file:../ezmaker-extension"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts"
+    ],
+    "targetVersions": {
+        "target": "8.1.19",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
