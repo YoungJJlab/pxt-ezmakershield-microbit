@@ -1,6 +1,6 @@
 {
     "name": "pxt-ezmakershield-microbit",
-    "version": "0.0.38",
+    "version": "0.0.39",
     "description": "EZmaker Shield for micro:bit",
     "license": "MIT",
     "dependencies": {
