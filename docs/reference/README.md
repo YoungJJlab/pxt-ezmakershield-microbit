@@ -5,7 +5,7 @@ Connection, parameters, returns and examples for all 27 blocks. MakeCode selects
 | API | Description |
 |---|---|
 | [enableBMP280AltitudeButtons](enable-bmp280-altitude-buttons.md) | Set up A: zero relative altitude / B: restore reference, without writing button event code. |
-| [readBMP280](read-bmp280.md) | Read BMP280 pressure, relative altitude or temperature; select channel 0 (0x77) or 1 (0x76). |
+| [readBMP280](read-bmp280.md) | Read pressure, relative altitude or temperature from the barometric pressure sensor; select channel 0 or 1. |
 | [sendSensorData](send-sensor-data.md) | Send numeric sensor values as one comma-separated text line. Sets 115200 baud on first use; ends each line with CRLF and no padding. |
 | [writeDigitalPin](write-digital-pin.md) | Set a DIY-B digital output low (0) or high (1). An unsupported pin is ignored. |
 | [readDIYARaw](read-diy-a-raw.md) | Read the DIY-A module's raw ADC value from 0 to 1023. |

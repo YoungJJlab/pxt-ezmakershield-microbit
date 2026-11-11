@@ -49,9 +49,9 @@ enum EZMakerDHT11DataType {
 }
 
 enum EZMakerBMP280Channel {
-    //% block="channel 0 (0x77)"
+    //% block="0"
     Channel0 = 0,
-    //% block="channel 1 (0x76)"
+    //% block="1"
     Channel1 = 1
 }
 
@@ -89,14 +89,14 @@ namespace ezmaker {
     }
 
     /**
-     * Read BMP280 pressure, relative altitude or temperature. Returns -9999 on an invalid setting or sensor error.
-     * @param channel module selector: channel 0 uses 0x77; channel 1 uses 0x76
+     * Read pressure, relative altitude or temperature from the barometric pressure sensor. Returns -9999 on an invalid setting or sensor error.
+     * @param channel module selector: 0 or 1, matching the module's physical channel setting
      * @param dataType measurement: pressure in hPa, relative altitude in m or temperature in °C
      * @param seaLevelPressure reference pressure in hPa before A calibration or after B restore; default 1013.25
      */
     //% help=github:pxt-ezmakershield-microbit/docs/reference/read-bmp280
     //% blockId="EZMAKER_bmp280_read"
-    //% block="read BMP280 %dataType on %channel||reference pressure %seaLevelPressure hPa"
+    //% block="read barometric pressure sensor %dataType on channel %channel||reference pressure %seaLevelPressure hPa"
     //% seaLevelPressure.defl=1013.25
     //% expandableArgumentMode="toggle"
     //% weight=100
@@ -112,12 +112,12 @@ namespace ezmaker {
     }
 
     /**
-     * Use button A to zero BMP280 relative altitude and B to restore the read block's reference pressure. Reserves A/B for this feature.
+     * Use button A to zero the barometric pressure sensor's relative altitude and B to restore the read block's reference pressure. Reserves A/B for this feature.
      * @param channel channel controlled by A/B; calling again selects the new channel without clearing saved zero references
      */
     //% help=github:pxt-ezmakershield-microbit/docs/reference/enable-bmp280-altitude-buttons
     //% blockId="EZMAKER_bmp280_altitude_buttons"
-    //% block="use BMP280 %channel relative altitude buttons A: zero B: restore"
+    //% block="use barometric pressure sensor channel %channel relative altitude buttons A: zero B: restore"
     //% weight=99
     //% color="#4527A0"
     //% subcategory="I2C"

@@ -1,6 +1,6 @@
-# readBMP280
+# Barometric pressure sensor
 
-Read BMP280 pressure, relative altitude or temperature. Returns -9999 on an invalid setting or sensor error.
+Read pressure, relative altitude or temperature from the barometric pressure sensor. Returns -9999 on an invalid setting or sensor error.
 
 ```sig
 ezmaker.readBMP280(EZMakerBMP280Channel.Channel0, EZMakerBMP280DataType.Pressure)
@@ -8,7 +8,7 @@ ezmaker.readBMP280(EZMakerBMP280Channel.Channel0, EZMakerBMP280DataType.Pressure
 
 ## Parameters
 
-- **channel**: module selector: channel 0 uses 0x77; channel 1 uses 0x76
+- **channel**: module selector: 0 or 1, matching the module's physical channel setting
 - **dataType**: measurement: pressure in hPa, relative altitude in m or temperature in °C
 - **seaLevelPressure**: reference pressure in hPa before A calibration or after B restore; default 1013.25
 

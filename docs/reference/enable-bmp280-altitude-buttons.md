@@ -1,6 +1,6 @@
-# enableBMP280AltitudeButtons
+# Barometric pressure sensor altitude buttons
 
-Use button A to zero BMP280 relative altitude and B to restore the read block's reference pressure. Reserves A/B for this feature.
+Use button A to zero the barometric pressure sensor's relative altitude and B to restore the read block's reference pressure. Reserves A/B for this feature.
 
 ```sig
 ezmaker.enableBMP280AltitudeButtons(EZMakerBMP280Channel.Channel0)
@@ -12,7 +12,7 @@ ezmaker.enableBMP280AltitudeButtons(EZMakerBMP280Channel.Channel0)
 
 ## Behavior
 
-Place this block in **on start**, then read **relative altitude (m)** with the BMP280 reading block. You do not need to write A/B button event code. Reading a sensor alone does not claim any buttons; this setup block opts in to A/B handling.
+Place this block in **on start**, then read **relative altitude (m)** with the barometric pressure sensor reading block. You do not need to write A/B button event code. Reading a sensor alone does not claim any buttons; this setup block opts in to A/B handling.
 
 - **A** samples the selected module's current pressure and uses it as the zero reference. Subsequent relative-altitude readings are near 0 m at that position, positive when raised and negative when lowered. Sensor noise and air-pressure changes prevent a perfectly fixed zero.
 - **B** removes that channel's zero reference and restores the reference pressure supplied to the reading block (1013.25 hPa by default). B restores the original reading, such as approximately 28 m, rather than setting another zero.

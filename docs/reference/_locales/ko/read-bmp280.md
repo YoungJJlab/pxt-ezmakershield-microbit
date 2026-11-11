@@ -1,6 +1,6 @@
-# readBMP280
+# 기압센서
 
-BMP280의 기압·상대고도·온도를 읽습니다. 잘못된 설정이나 센서 오류는 -9999를 반환합니다.
+기압센서의 기압·상대고도·온도를 읽습니다. 잘못된 설정이나 센서 오류는 -9999를 반환합니다.
 
 ```sig
 ezmaker.readBMP280(EZMakerBMP280Channel.Channel0, EZMakerBMP280DataType.Pressure)
@@ -8,7 +8,7 @@ ezmaker.readBMP280(EZMakerBMP280Channel.Channel0, EZMakerBMP280DataType.Pressure
 
 ## 매개변수
 
-- **channel**: 모듈 채널 선택: 채널 0은 0x77, 채널 1은 0x76
+- **channel**: 모듈 채널 선택: 모듈의 실제 설정과 같은 0 또는 1
 - **dataType**: 측정값 선택: 기압 hPa·상대고도 m·온도 °C
 - **seaLevelPressure**: A 영점 설정 전 또는 B 복원 후 사용하는 기준기압 hPa; 기본 1013.25
 
