@@ -76,6 +76,7 @@ enum EZMakerNeoPixelType {
 //% weight=100 color="#FF5733" icon="\uf12e" block="ezmaker"
 namespace ezmaker {
 
+    let sensorDataSerialInitialized = false;
     let bmp280AltitudeReference = [0, 0];
     let bmp280AltitudeError = [false, false];
     let bmp280AltitudeButtonChannel = -1;
@@ -98,7 +99,7 @@ namespace ezmaker {
     //% block="read BMP280 %dataType on %channel||reference pressure %seaLevelPressure hPa"
     //% seaLevelPressure.defl=1013.25
     //% expandableArgumentMode="toggle"
-    //% subcategory="Barometric Pressure"
+    //% subcategory="Sensors"
     //% weight=100
     export function readBMP280(channel: EZMakerBMP280Channel, dataType: EZMakerBMP280DataType, seaLevelPressure: number = 1013.25): number {
         if (dataType === EZMakerBMP280DataType.Altitude
@@ -116,7 +117,7 @@ namespace ezmaker {
     //% help=github:pxt-ezmakershield-microbit/docs/reference/enable-bmp280-altitude-buttons
     //% blockId="EZMAKER_bmp280_altitude_buttons"
     //% block="use BMP280 %channel relative altitude buttons A: zero B: restore"
-    //% subcategory="Barometric Pressure"
+    //% subcategory="Sensors"
     //% weight=99
     export function enableBMP280AltitudeButtons(channel: EZMakerBMP280Channel): void {
         if (channel !== EZMakerBMP280Channel.Channel0 && channel !== EZMakerBMP280Channel.Channel1) return;
@@ -147,21 +148,25 @@ namespace ezmaker {
     }
 
     /**
-     * Send numeric sensor values as one comma-separated text line at 115200 baud, ending with CRLF and no padding.
+     * Send numeric sensor values as one comma-separated text line. Sets 115200 baud on first use; ends each line with CRLF and no padding.
      * @param values sensor values in transmission order; add or remove array items to change the sensor count
      */
     //% help=github:pxt-ezmakershield-microbit/docs/reference/send-sensor-data
     //% blockId="EZMAKER_send_sensor_data"
-    //% block="send sensor data %values at 115200 baud"
+    //% block="send sensor data %values"
     //% values.shadow="lists_create_with"
     //% subcategory="Data Transmission"
     //% weight=100
     export function sendSensorData(values: number[]): void {
         if (!values) return;
+        // Initialize only when this block is first used; leave later serial settings alone.
+        if (!sensorDataSerialInitialized) {
+            serial.setBaudRate(BaudRate.BaudRate115200);
+            sensorDataSerialInitialized = true;
+        }
         // One string write avoids writeLine's default 32-byte space padding.
         // Keep the user's current serial routing (USB by default).
         let line = values.join(",") + "\r\n";
-        serial.setBaudRate(BaudRate.BaudRate115200);
         serial.writeString(line);
     }
 
@@ -198,7 +203,7 @@ namespace ezmaker {
     //% block="read DIY-A sensor raw value (0-1023) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=100
-    //% subcategory="DIY Sensors"
+    //% subcategory="Sensors"
     export function readDIYARaw(pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -219,7 +224,7 @@ namespace ezmaker {
     //% block="read DIY-A sensor voltage (0-3.3V) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=99
-    //% subcategory="DIY Sensors"
+    //% subcategory="Sensors"
     export function readDIYAVoltage(pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -242,7 +247,7 @@ namespace ezmaker {
     //% block="read DIY-B sensor analog value (0-1023) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=95
-    //% subcategory="DIY Sensors"
+    //% subcategory="Sensors"
     export function readDIYBAnalog(pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -263,7 +268,7 @@ namespace ezmaker {
     //% block="read DIY-B sensor digital input on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=94
-    //% subcategory="DIY Sensors"
+    //% subcategory="Sensors"
     export function readDIYBDigital(pin: EZMakerDigitalPin): boolean {
         let d: DigitalPin;
         switch (<number>pin) {
@@ -290,7 +295,7 @@ namespace ezmaker {
     //% block="read MQ2 gas sensor %gasType (ppm) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=92
-    //% subcategory="Basic Sensors"
+    //% subcategory="Sensors"
     export function readMQ2(gasType: EZMakerMQ2GasType, pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -347,7 +352,7 @@ namespace ezmaker {
     //% block="read light sensor raw value (0-1023) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=85
-    //% subcategory="Basic Sensors"
+    //% subcategory="Sensors"
     export function readLightRaw(pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -368,7 +373,7 @@ namespace ezmaker {
     //% block="read light sensor percentage (0-100) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=84
-    //% subcategory="Basic Sensors"
+    //% subcategory="Sensors"
     export function readLightPercentage(pin: EZMakerAnalogPin): number {
         let raw = readLightRaw(pin);
         let percent = (raw * 100) / 1023.0;
@@ -384,7 +389,7 @@ namespace ezmaker {
     //% block="read sound sensor raw value (0-1023) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=82
-    //% subcategory="Basic Sensors"
+    //% subcategory="Sensors"
     export function readSoundRaw(pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -405,7 +410,7 @@ namespace ezmaker {
     //% block="read sound sensor percentage (0-100) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=81
-    //% subcategory="Basic Sensors"
+    //% subcategory="Sensors"
     export function readSoundPercentage(pin: EZMakerAnalogPin): number {
         let raw = readSoundRaw(pin);
         let percent = (raw * 100) / 1023.0;
@@ -421,7 +426,7 @@ namespace ezmaker {
     //% block="read voltage sensor (0-16.5V) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=60
-    //% subcategory="Basic Sensors"
+    //% subcategory="Sensors"
     export function readVoltage(pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -453,7 +458,7 @@ namespace ezmaker {
     //% block="read high temp sensor temperature (°C) on %port"
     //% port.fieldEditor="gridpicker" port.fieldOptions.columns=3
     //% weight=91
-    //% subcategory="Temp & Humidity"
+    //% subcategory="Sensors"
     //% hiddenParts="temperature"
     export function readMax31850(port: EZMakerDigitalPin): number {
         let p: DigitalPin;
@@ -487,7 +492,7 @@ namespace ezmaker {
     //% block="read DS18B20 temperature sensor (°C) on %port"
     //% port.fieldEditor="gridpicker" port.fieldOptions.columns=3
     //% weight=80
-    //% subcategory="Temp & Humidity"
+    //% subcategory="Sensors"
     //% hiddenParts="temperature"
     export function readDS18B20(port: EZMakerDigitalPin): number {
         // Reject invalid ports before inspecting or changing the last valid cache.
@@ -544,7 +549,7 @@ namespace ezmaker {
     //% block="read DHT11 %dataType on %port"
     //% port.fieldEditor="gridpicker" port.fieldOptions.columns=3
     //% weight=70
-    //% subcategory="Temp & Humidity"
+    //% subcategory="Sensors"
     export function readDHT11(port: EZMakerDigitalPin, dataType: EZMakerDHT11DataType): number {
         let d: DigitalPin;
         switch (<number>port) {

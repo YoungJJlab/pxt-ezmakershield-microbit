@@ -14,7 +14,7 @@ ezmaker.readBMP280(EZMakerBMP280Channel.Channel0, EZMakerBMP280DataType.Pressure
 
 ## Connection and behavior
 
-Open **ezmaker → Barometric Pressure**. Connect the module to the shield's I2C connector: P19=SCL, P20=SDA, 3.3 V and GND. Match the channel dropdown to the module's physical selector. These channels select the device address on the same I2C bus; they are not separate signal pins. Two modules may share the bus when one is on each address. Power off before changing wiring or the selector.
+Open **ezmaker → Sensors**. Connect the module to the shield's I2C connector: P19=SCL, P20=SDA, 3.3 V and GND. Match the channel dropdown to the module's physical selector. These channels select the device address on the same I2C bus; they are not separate signal pins. Two modules may share the bus when one is on each address. Power off before changing wiring or the selector.
 
 Choose pressure (hPa), relative altitude (m) or temperature (°C). Each result is rounded to two decimal places; displayed resolution does not imply that accuracy. Each call reads calibration from the selected chip and performs a new forced measurement (temperature ×1, pressure ×4, filter off). It waits at least 15 ms for conversion; busy checks have bounded timeouts. Sequential calls are separate measurements. Do not control the same device with another driver concurrently.
 

@@ -87,7 +87,7 @@
     "ezmaker.showNeoPixelBarGraph|param|pin": "디지털 신호 핀 P8·P12·P13·P16 중 하나",
     "ezmaker.showNeoPixelBarGraph|param|value": "표시할 값; 라이브러리는 절댓값을 사용",
     "ezmaker.showNeoPixelBarGraph|param|high": "고정 눈금의 양수 최댓값; 기본 255",
-    "ezmaker.sendSensorData": "숫자형 센서 값을 쉼표로 구분한 문자열 한 줄로 115200bps에서 전송합니다. CRLF로 줄을 끝내며 공백을 추가하지 않습니다.",
+    "ezmaker.sendSensorData": "숫자형 센서 값을 쉼표로 구분한 문자열 한 줄로 전송합니다. 최초 사용 시 115200bps를 설정하고, 각 줄은 공백 추가 없이 CRLF로 끝냅니다.",
     "ezmaker.sendSensorData|param|values": "전송 순서대로 넣은 센서 값 목록; 배열 항목을 추가하거나 제거해 센서 개수를 변경",
     "ezmaker.readBMP280": "BMP280의 기압·상대고도·온도를 읽습니다. 잘못된 설정이나 센서 오류는 -9999를 반환합니다.",
     "ezmaker.readBMP280|param|channel": "모듈 채널 선택: 채널 0은 0x77, 채널 1은 0x76",

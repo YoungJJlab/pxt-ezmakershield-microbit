@@ -1,5 +1,6 @@
 {
     "scripts": {
+        "check:approval": "node scripts/check-approval.cjs",
         "dev:setup": "node scripts/makecode.cjs setup",
         "dev": "node scripts/makecode.cjs serve",
         "dev:stop": "node scripts/makecode.cjs stop",

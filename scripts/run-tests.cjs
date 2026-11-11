@@ -2,6 +2,7 @@ const fs=require('node:fs'),path=require('node:path');
 const {spawnSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..');
 const steps=[
+    ['scripts/check-approval.cjs'],
     ['scripts/check-basic.cjs'],
     ['scripts/check-data-transmission.cjs'],
     ['scripts/check-bmp280.cjs'],
@@ -23,4 +24,4 @@ for(const args of steps){
 }
 fs.mkdirSync(path.join(root,'.dev'),{recursive:true});
 fs.writeFileSync(path.join(root,'.dev/test-run.json'),JSON.stringify({recordedAt:new Date().toISOString(),result:process.exitCode?'fail':'pass',steps:results},null,2)+'\n');
-if(!process.exitCode)console.log('PASS: all eight regression/compilation/simulator steps completed. Physical module tests remain separate.');
+if(!process.exitCode)console.log(`PASS: all ${steps.length} publication/regression/compilation/simulator steps completed. Physical module tests remain separate.`);

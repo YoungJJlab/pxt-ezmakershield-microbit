@@ -16,6 +16,10 @@ EZMAKER is the brand of **HAICT Inc.** The materials below are intended for scho
 
 MakeCode gallery approval is pending. Use the repository URL to add the extension. Changes in this working folder become available through that URL after publication to GitHub. For immediate local testing, see [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md).
 
+## Toolbox organization
+
+The toolbox has three subcategories: **Sensors** (15 blocks), **NeoPixel** (10 blocks) and **Data Transmission** (1 block). Digital output remains directly under **ezmaker**. Sensor subcategories from v0.0.38 are combined; existing block IDs and TypeScript APIs are unchanged. Korean labels are **센서**, **네오픽셀** and **데이터전송**.
+
 ## Implemented blocks and ports
 
 | Family | APIs | Current implementation | Selectable signal pins |
@@ -133,7 +137,7 @@ The global enum names have also changed to use the common EZMaker prefix request
 
 ## Transmit sensor readings
 
-Use **ezmaker → Data Transmission** and add/remove numeric-array items with + / −. `ezmaker.sendSensorData([10, 20.5, -3])` sends exactly `10,20.5,-3\r\n` as a string at 115200 baud. Replace numbers with sensor blocks to send live values. See [format and testing](DATA_TRANSMISSION_TESTING.md).
+Use **ezmaker → Data Transmission** and add/remove numeric-array items with + / −. `ezmaker.sendSensorData([10, 20.5, -3])` sends exactly `10,20.5,-3\r\n` as a string at 115200 baud. The first non-null call selects 115200 baud once; later calls preserve the current serial settings. Replace numbers with sensor blocks to send live values. See [format and testing](DATA_TRANSMISSION_TESTING.md).
 
 BMP280 supports channel 0=0x77 and channel 1=0x76, with pressure/relative-altitude/temperature selection. Before zeroing, the reference defaults to 1013.25 hPa. Normal operation, including A zero/B restore, has been user-confirmed on V1 and V2. Per-channel and error-recovery details are recorded separately in [BMP280 tests](BMP280_TESTING.md).
 
