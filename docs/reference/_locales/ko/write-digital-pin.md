@@ -1,6 +1,6 @@
 # writeDigitalPin
 
-디지털 출력을 0 또는 1로 설정합니다. 지원하지 않는 핀은 무시합니다.
+DIY-B 디지털 출력을 0 또는 1로 설정합니다. 지원하지 않는 핀은 무시합니다.
 
 ```sig
 ezmaker.writeDigitalPin(EZMakerDigitalPin.P8, 1)

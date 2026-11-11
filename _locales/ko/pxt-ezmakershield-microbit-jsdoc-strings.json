@@ -1,5 +1,5 @@
 {
-    "ezmaker.writeDigitalPin": "디지털 출력을 0 또는 1로 설정합니다. 지원하지 않는 핀은 무시합니다.",
+    "ezmaker.writeDigitalPin": "DIY-B 디지털 출력을 0 또는 1로 설정합니다. 지원하지 않는 핀은 무시합니다.",
     "ezmaker.writeDigitalPin|param|pin": "디지털 신호 핀 P8·P12·P13·P16 중 하나",
     "ezmaker.writeDigitalPin|param|value": "출력 상태: 0은 Low, 1은 High",
     "ezmaker.readDIYARaw": "DIY-A 모듈의 ADC 원시값 0~1023을 읽습니다.",

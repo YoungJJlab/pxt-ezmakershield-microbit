@@ -18,7 +18,7 @@ MakeCode gallery approval is pending. Use the repository URL to add the extensio
 
 ## Toolbox organization
 
-The toolbox has three subcategories: **Sensors** (15 blocks), **NeoPixel** (10 blocks) and **Data Transmission** (1 block). Digital output remains directly under **ezmaker**. Sensor subcategories from v0.0.38 are combined; existing block IDs and TypeScript APIs are unchanged. Korean labels are **센서**, **네오픽셀** and **데이터전송**.
+Sensors are organized by their connection: **Analog** (6 blocks), **Digital** (3 blocks) and **I2C** (2 blocks). **NeoPixel** (10 blocks) and **Data Transmission** (1 block) remain separate. DIY-A and DIY-B reads and DIY-B digital output (5 blocks) appear directly under **ezmaker**. Korean sensor labels are **아날로그**, **디지털** and **I2C**. Blocks for the same sensor share a color; their names still identify the sensor. Existing block IDs and TypeScript APIs remain unchanged. UART sensor support is not included; the shield's UART connector remains a hardware feature.
 
 ## Implemented blocks and ports
 

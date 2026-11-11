@@ -1,7 +1,7 @@
 {
     "ezmaker|block": "이지메이커",
     "{id:category}Ezmaker": "이지메이커",
-    "ezmaker.writeDigitalPin|block": "%pin 핀의 디지털 출력을 %value 로 설정",
+    "ezmaker.writeDigitalPin|block": "DIY-B %pin 핀의 디지털 출력을 %value 로 설정",
     "EZMakerAnalogPin.P0|block": "P0",
     "EZMakerAnalogPin.P1|block": "P1",
     "EZMakerAnalogPin.P2|block": "P2",
@@ -52,5 +52,7 @@
     "EZMakerBMP280DataType.Temperature|block": "온도 (°C)",
     "ezmaker.readBMP280|block": "BMP280 %dataType 을 %channel 에서 읽기||기준기압 %seaLevelPressure hPa",
     "ezmaker.enableBMP280AltitudeButtons|block": "BMP280 %channel 상대고도 버튼 사용 A: 0m 설정 B: 기준 복원",
-    "{id:subcategory}Sensors": "센서"
+    "{id:subcategory}Analog": "아날로그",
+    "{id:subcategory}Digital": "디지털",
+    "{id:subcategory}I2C": "I2C"
 }

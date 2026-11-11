@@ -20,9 +20,9 @@ for(const file of files){
 }
 const source=fs.readFileSync(path.join(root,'custom.ts'),'utf8');
 const categories=[...new Set([...source.matchAll(/subcategory="([^"]+)"/g)].map(match=>match[1]))].sort();
-check(JSON.stringify(categories)===JSON.stringify(['Data Transmission','NeoPixel','Sensors']),'Unexpected toolbox subcategories');
+check(JSON.stringify(categories)===JSON.stringify(['Analog','Data Transmission','Digital','I2C','NeoPixel']),'Unexpected toolbox subcategories');
 const ko=JSON.parse(fs.readFileSync(path.join(root,'_locales/ko/pxt-ezmakershield-microbit-strings.json'),'utf8'));
-for(const [name,translated] of Object.entries({Sensors:'센서',NeoPixel:'네오픽셀','Data Transmission':'데이터전송'}))
+for(const [name,translated] of Object.entries({Analog:'아날로그',Digital:'디지털',I2C:'I2C',NeoPixel:'네오픽셀','Data Transmission':'데이터전송'}))
     check(ko['{id:subcategory}'+name]===translated,name+': missing Korean category');
 const result={recordedAt:new Date().toISOString(),checks,result:'pass',version:config.version,manifestFiles:files.length,subcategories:categories};
 fs.mkdirSync(path.join(root,'.dev'),{recursive:true});

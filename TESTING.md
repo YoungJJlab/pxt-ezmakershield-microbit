@@ -16,11 +16,11 @@ npm.cmd run build:suite:v1
 npm.cmd run build:suite:v2
 ```
 
-`npm test` stops with a nonzero exit status on the first failed step. A complete pass currently comprises 3,490 checks/assertions:
+`npm test` stops with a nonzero exit status on the first failed step. A complete pass currently comprises 3,492 checks/assertions:
 
 | Layer | Checks | What it establishes |
 |---|---:|---|
-| Publication manifest | 387 | `public: true`, exact file names/case/extensions, test.ts, unique paths and bilingual toolbox labels |
+| Publication manifest | 389 | `public: true`, exact file names/case/extensions, test.ts, unique paths and bilingual toolbox labels |
 | BMP280 | 1,130 | 72 actual relative-altitude/button/state checks, 54 wrapper/simulator checks and 1,004 production native checks: register model, independent integer/64-bit compensation oracle, both addresses, units, errors, hot replacement, bounded waits and locks |
 | Data transmission | 47 | First-use 115200 initialization, no reconfiguration on repeat sends, later user settings/routing, restart, CSV/CRLF/no padding and variable length |
 | Basic APIs | 287 | ADC routing/endpoints/rounding, nominal MQ2 coefficients, digital routing |

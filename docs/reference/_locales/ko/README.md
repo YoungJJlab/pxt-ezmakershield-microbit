@@ -7,7 +7,7 @@
 | [enableBMP280AltitudeButtons](enable-bmp280-altitude-buttons.md) | 버튼 이벤트 코드 없이 A 영점·B 기준 복원을 설정합니다. |
 | [readBMP280](read-bmp280.md) | BMP280 기압·상대고도·온도; 채널 0(0x77)·1(0x76) 선택. |
 | [sendSensorData](send-sensor-data.md) | 숫자형 센서 값을 쉼표로 구분한 문자열 한 줄로 전송합니다. 최초 사용 시 115200bps를 설정하고, 각 줄은 공백 추가 없이 CRLF로 끝냅니다. |
-| [writeDigitalPin](write-digital-pin.md) | 디지털 출력을 0 또는 1로 설정합니다. 지원하지 않는 핀은 무시합니다. |
+| [writeDigitalPin](write-digital-pin.md) | DIY-B 디지털 출력을 0 또는 1로 설정합니다. 지원하지 않는 핀은 무시합니다. |
 | [readDIYARaw](read-diy-a-raw.md) | DIY-A 모듈의 ADC 원시값 0~1023을 읽습니다. |
 | [readDIYBAnalog](read-diy-b-analog.md) | DIY-B 아날로그 모듈의 ADC 원시값 0~1023을 읽습니다. |
 | [readLightRaw](read-light-raw.md) | 외부 밝기 모듈의 ADC 원시값 0~1023을 읽습니다. |

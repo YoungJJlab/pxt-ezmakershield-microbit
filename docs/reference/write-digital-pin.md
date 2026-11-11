@@ -1,6 +1,6 @@
 # writeDigitalPin
 
-Set a digital output low (0) or high (1). An unsupported pin is ignored.
+Set a DIY-B digital output low (0) or high (1). An unsupported pin is ignored.
 
 ```sig
 ezmaker.writeDigitalPin(EZMakerDigitalPin.P8, 1)

@@ -99,8 +99,9 @@ namespace ezmaker {
     //% block="read BMP280 %dataType on %channel||reference pressure %seaLevelPressure hPa"
     //% seaLevelPressure.defl=1013.25
     //% expandableArgumentMode="toggle"
-    //% subcategory="Sensors"
     //% weight=100
+    //% color="#4527A0"
+    //% subcategory="I2C"
     export function readBMP280(channel: EZMakerBMP280Channel, dataType: EZMakerBMP280DataType, seaLevelPressure: number = 1013.25): number {
         if (dataType === EZMakerBMP280DataType.Altitude
             && (channel === EZMakerBMP280Channel.Channel0 || channel === EZMakerBMP280Channel.Channel1)) {
@@ -117,8 +118,9 @@ namespace ezmaker {
     //% help=github:pxt-ezmakershield-microbit/docs/reference/enable-bmp280-altitude-buttons
     //% blockId="EZMAKER_bmp280_altitude_buttons"
     //% block="use BMP280 %channel relative altitude buttons A: zero B: restore"
-    //% subcategory="Sensors"
     //% weight=99
+    //% color="#4527A0"
+    //% subcategory="I2C"
     export function enableBMP280AltitudeButtons(channel: EZMakerBMP280Channel): void {
         if (channel !== EZMakerBMP280Channel.Channel0 && channel !== EZMakerBMP280Channel.Channel1) return;
         bmp280AltitudeButtonChannel = channel;
@@ -155,8 +157,9 @@ namespace ezmaker {
     //% blockId="EZMAKER_send_sensor_data"
     //% block="send sensor data %values"
     //% values.shadow="lists_create_with"
-    //% subcategory="Data Transmission"
     //% weight=100
+    //% color="#37474F"
+    //% subcategory="Data Transmission"
     export function sendSensorData(values: number[]): void {
         if (!values) return;
         // Initialize only when this block is first used; leave later serial settings alone.
@@ -171,16 +174,17 @@ namespace ezmaker {
     }
 
     /**
-     * Set a digital output low (0) or high (1). An unsupported pin is ignored.
+     * Set a DIY-B digital output low (0) or high (1). An unsupported pin is ignored.
      * @param pin digital signal pin P8, P12, P13 or P16, eg: EZMakerDigitalPin.P8
      * @param value output level: 0 low or 1 high, eg: 1
      */
     //% help=github:pxt-ezmakershield-microbit/docs/reference/write-digital-pin
     //% blockId="ezmaker_write_digital"
-    //% block="set digital module on %pin to %value"
+    //% block="set DIY-B digital output on %pin to %value"
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.columns=3
     //% weight=99
+    //% color="#455A64"
     export function writeDigitalPin(pin: EZMakerDigitalPin, value: number): void {
         switch (<number>pin) {
             case 108: pins.digitalWritePin(DigitalPin.P8, value); break;
@@ -203,7 +207,7 @@ namespace ezmaker {
     //% block="read DIY-A sensor raw value (0-1023) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=100
-    //% subcategory="Sensors"
+    //% color="#546E7A"
     export function readDIYARaw(pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -224,7 +228,7 @@ namespace ezmaker {
     //% block="read DIY-A sensor voltage (0-3.3V) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=99
-    //% subcategory="Sensors"
+    //% color="#546E7A"
     export function readDIYAVoltage(pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -247,7 +251,7 @@ namespace ezmaker {
     //% block="read DIY-B sensor analog value (0-1023) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=95
-    //% subcategory="Sensors"
+    //% color="#455A64"
     export function readDIYBAnalog(pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -268,7 +272,7 @@ namespace ezmaker {
     //% block="read DIY-B sensor digital input on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=94
-    //% subcategory="Sensors"
+    //% color="#455A64"
     export function readDIYBDigital(pin: EZMakerDigitalPin): boolean {
         let d: DigitalPin;
         switch (<number>pin) {
@@ -295,7 +299,8 @@ namespace ezmaker {
     //% block="read MQ2 gas sensor %gasType (ppm) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=92
-    //% subcategory="Sensors"
+    //% color="#6A1B9A"
+    //% subcategory="Analog"
     export function readMQ2(gasType: EZMakerMQ2GasType, pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -352,7 +357,8 @@ namespace ezmaker {
     //% block="read light sensor raw value (0-1023) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=85
-    //% subcategory="Sensors"
+    //% color="#9A6700"
+    //% subcategory="Analog"
     export function readLightRaw(pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -373,7 +379,8 @@ namespace ezmaker {
     //% block="read light sensor percentage (0-100) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=84
-    //% subcategory="Sensors"
+    //% color="#9A6700"
+    //% subcategory="Analog"
     export function readLightPercentage(pin: EZMakerAnalogPin): number {
         let raw = readLightRaw(pin);
         let percent = (raw * 100) / 1023.0;
@@ -389,7 +396,8 @@ namespace ezmaker {
     //% block="read sound sensor raw value (0-1023) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=82
-    //% subcategory="Sensors"
+    //% color="#1565C0"
+    //% subcategory="Analog"
     export function readSoundRaw(pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -410,7 +418,8 @@ namespace ezmaker {
     //% block="read sound sensor percentage (0-100) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=81
-    //% subcategory="Sensors"
+    //% color="#1565C0"
+    //% subcategory="Analog"
     export function readSoundPercentage(pin: EZMakerAnalogPin): number {
         let raw = readSoundRaw(pin);
         let percent = (raw * 100) / 1023.0;
@@ -426,7 +435,8 @@ namespace ezmaker {
     //% block="read voltage sensor (0-16.5V) on %pin"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=60
-    //% subcategory="Sensors"
+    //% color="#2E7D32"
+    //% subcategory="Analog"
     export function readVoltage(pin: EZMakerAnalogPin): number {
         let p: AnalogPin;
         switch(<number>pin) {
@@ -458,8 +468,9 @@ namespace ezmaker {
     //% block="read high temp sensor temperature (°C) on %port"
     //% port.fieldEditor="gridpicker" port.fieldOptions.columns=3
     //% weight=91
-    //% subcategory="Sensors"
     //% hiddenParts="temperature"
+    //% color="#B71C1C"
+    //% subcategory="Digital"
     export function readMax31850(port: EZMakerDigitalPin): number {
         let p: DigitalPin;
         switch (<number>port) {
@@ -492,8 +503,9 @@ namespace ezmaker {
     //% block="read DS18B20 temperature sensor (°C) on %port"
     //% port.fieldEditor="gridpicker" port.fieldOptions.columns=3
     //% weight=80
-    //% subcategory="Sensors"
     //% hiddenParts="temperature"
+    //% color="#00695C"
+    //% subcategory="Digital"
     export function readDS18B20(port: EZMakerDigitalPin): number {
         // Reject invalid ports before inspecting or changing the last valid cache.
         let p: DigitalPin;
@@ -549,7 +561,8 @@ namespace ezmaker {
     //% block="read DHT11 %dataType on %port"
     //% port.fieldEditor="gridpicker" port.fieldOptions.columns=3
     //% weight=70
-    //% subcategory="Sensors"
+    //% color="#AD1457"
+    //% subcategory="Digital"
     export function readDHT11(port: EZMakerDigitalPin, dataType: EZMakerDHT11DataType): number {
         let d: DigitalPin;
         switch (<number>port) {
@@ -666,8 +679,9 @@ namespace ezmaker {
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.columns=3
     //% weight=90
-    //% subcategory="NeoPixel"
     //% hiddenParts="neopixel"
+    //% color="#00838F"
+    //% subcategory="NeoPixel"
     export function setNeoPixelColorAll(npType: EZMakerNeoPixelType, pin: EZMakerDigitalPin, color: number): void {
         let strip = getNeoPixelStrip(pin, npType);
         strip.showColor(color);
@@ -687,8 +701,9 @@ namespace ezmaker {
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.columns=3
     //% weight=89
-    //% subcategory="NeoPixel"
     //% hiddenParts="neopixel"
+    //% color="#00838F"
+    //% subcategory="NeoPixel"
     export function setNeoPixelPixelColor(npType: EZMakerNeoPixelType, pin: EZMakerDigitalPin, index: number, color: number): void {
         let strip = getNeoPixelStrip(pin, npType);
         strip.setPixelColor(index, color);
@@ -708,8 +723,9 @@ namespace ezmaker {
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.columns=3
     //% weight=88
-    //% subcategory="NeoPixel"
     //% hiddenParts="neopixel"
+    //% color="#00838F"
+    //% subcategory="NeoPixel"
     export function setNeoPixelBrightness(npType: EZMakerNeoPixelType, pin: EZMakerDigitalPin, brightness: number): void {
         let strip = getNeoPixelStrip(pin, npType);
         strip.setBrightness(brightness);
@@ -727,8 +743,9 @@ namespace ezmaker {
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.columns=3
     //% weight=87
-    //% subcategory="NeoPixel"
     //% hiddenParts="neopixel"
+    //% color="#00838F"
+    //% subcategory="NeoPixel"
     export function clearNeoPixel(npType: EZMakerNeoPixelType, pin: EZMakerDigitalPin): void {
         let strip = getNeoPixelStrip(pin, npType);
         strip.clear();
@@ -759,8 +776,9 @@ namespace ezmaker {
     //% c7.shadow="colorNumberPicker" c7.defl=0x8a2be2
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=86
-    //% subcategory="NeoPixel"
     //% hiddenParts="neopixel"
+    //% color="#00838F"
+    //% subcategory="NeoPixel"
     export function setNeoPixelBar(pin: EZMakerDigitalPin, c1: number, c2: number, c3: number, c4: number, c5: number, c6: number, c7: number): void {
         let strip = getNeoPixelStrip(pin, EZMakerNeoPixelType.Bar);
         strip.setPixelColor(0, c1);
@@ -807,8 +825,9 @@ namespace ezmaker {
     //% c12.shadow="colorNumberPicker" c12.defl=0xFF00FF
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=3
     //% weight=85
-    //% subcategory="NeoPixel"
     //% hiddenParts="neopixel"
+    //% color="#00838F"
+    //% subcategory="NeoPixel"
     export function setNeoPixelRing(pin: EZMakerDigitalPin, c1: number, c2: number, c3: number, c4: number, c5: number, c6: number, c7: number, c8: number, c9: number, c10: number, c11: number, c12: number): void {
         let strip = getNeoPixelStrip(pin, EZMakerNeoPixelType.Ring);
         strip.setPixelColor(0, c1);
@@ -841,8 +860,9 @@ namespace ezmaker {
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.columns=3
     //% weight=84
-    //% subcategory="NeoPixel"
     //% hiddenParts="neopixel"
+    //% color="#00838F"
+    //% subcategory="NeoPixel"
     export function showNeoPixelRainbow(npType: EZMakerNeoPixelType, pin: EZMakerDigitalPin, startHue: number = 1, endHue: number = 360): void {
         let strip = getNeoPixelStrip(pin, npType);
         strip.showRainbow(startHue, endHue);
@@ -862,8 +882,9 @@ namespace ezmaker {
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.columns=3
     //% weight=83
-    //% subcategory="NeoPixel"
     //% hiddenParts="neopixel"
+    //% color="#00838F"
+    //% subcategory="NeoPixel"
     export function shiftNeoPixel(npType: EZMakerNeoPixelType, pin: EZMakerDigitalPin, offset: number = 1): void {
         let strip = getNeoPixelStrip(pin, npType);
         strip.shift(offset);
@@ -883,8 +904,9 @@ namespace ezmaker {
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.columns=3
     //% weight=82
-    //% subcategory="NeoPixel"
     //% hiddenParts="neopixel"
+    //% color="#00838F"
+    //% subcategory="NeoPixel"
     export function rotateNeoPixel(npType: EZMakerNeoPixelType, pin: EZMakerDigitalPin, offset: number = 1): void {
         let strip = getNeoPixelStrip(pin, npType);
         strip.rotate(offset);
@@ -905,8 +927,9 @@ namespace ezmaker {
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.columns=3
     //% weight=81
-    //% subcategory="NeoPixel"
     //% hiddenParts="neopixel"
+    //% color="#00838F"
+    //% subcategory="NeoPixel"
     export function showNeoPixelBarGraph(npType: EZMakerNeoPixelType, pin: EZMakerDigitalPin, value: number, high: number = 255): void {
         let strip = getNeoPixelStrip(pin, npType);
         strip.showBarGraph(value, high);
